@@ -17,6 +17,7 @@ Edit the "username", "password", and "domain" variables with your information on
 
 You'll need to add a cron job by using "crontab -e" in terminal, in order to periodically run the dynip.sh script
 Add this line to the bottom, replacing <LOCATION> with the location of the dynip folder
+  
 */10 * * * * /bin/bash /<LOCATION>/dynip.sh
   
 This will check your IP every 10 minutes, and update it on domains.google.com if it has changed.
