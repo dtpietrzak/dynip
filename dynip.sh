@@ -19,6 +19,10 @@ newip="new_ip.txt"
 oldip="old_ip.txt"
 rotate="rotation.txt"
 # get the rotation number from the rotation file
+# if it doesn't exist yet, create it and set it to 1
+if [ ! -f $path$rotate ]; then
+    echo 1 > $path$rotate
+fi
 rot=$(<$path$rotate)
 
 # this is an array of websites used to get your public IP

@@ -4,6 +4,7 @@
 # ignore all conf
 *.conf
 
-# ignore old_ip.txt and new_ip.txt
+# ignore old_ip.txt and new_ip.txt and rotation.txt
 old_ip.txt
 new_ip.txt
+rotation.txt
