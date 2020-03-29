@@ -1,13 +1,21 @@
 #!/bin/bash
 
-echo
-echo
-echo "running dynip.sh"
-echo "- - - - - - - - "
-echo
 
-echo "getting current IP"
-rot=$(<rotation.txt)
+
+
+# you need to set this to the FULL path of the dynip directory
+path="/home/david/Desktop/server/github/dynip/"
+# dont forget to also create the dynip.conf file
+# see dynip.conf_example for an... example
+
+
+
+
+log="dynip.log"
+newip="new_ip.txt"
+rotate="rotation.txt"
+rot=$(<$path$rotate)
+
 ip_sites=(ifconfig.me/ip v4.ident.me ipv4.icanhazip.com ipecho.net/plain ipinfo.io/ip checkip.amazonaws.com)
 num_of_sites=${#ip_sites[@]}
 
@@ -29,23 +37,15 @@ do
   then
     ip1=$(curl -s ${ip_sites[$i1]})
     ip2=$(curl -s ${ip_sites[$i2]})
-    echo "INFO:" ${ip_sites[$i1]} ":"  $ip1 "  -  " ${ip_sites[$i2]} ":" $ip2 >> dynip.log
+    echo "INFO:" ${ip_sites[$i1]} ":"  $ip1 "  -  " ${ip_sites[$i2]} ":" $ip2 >> $path$log
     if [ $ip1 = $ip2 ]
     then
-      echo $ip1 > new_ip.txt
+      echo $ip1 > $path$newip
     else
-      echo
-      echo "IPs don't match, I will try again later..."
-      echo "IP MATCH ERROR!" >> dynip.log
+      echo "IPs don't match, will try again later..." >> $path$log
     fi
-    echo $i2 > rotation.txt
+    echo $i2 > $path$rotate
   fi
 done
 
-./dynip.py
-
-echo "- - - - - - - - "
-echo "done"
-echo
-echo
-echo
+cd $path && ./dynip.py >> $path$log
