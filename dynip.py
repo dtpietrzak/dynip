@@ -15,15 +15,26 @@ with open("dynip.conf", "r") as file:
   password = set[1]
   domain = set[2]
 
+
+try:
 # get the new ip from the lastest check
-with open("new_ip.txt", "r") as file:
-  new_ip = file.read()
-file.close()
+  with open("new_ip.txt", "r") as file:
+    new_ip = file.readlines()[0]
+  file.close()
 
 # get the old ip from the last change
-with open("old_ip.txt", "r") as file:
-  old_ip = file.read()
-file.close()
+  with open("old_ip.txt", "r") as file:
+    old_ip = file.readlines()[0]
+  file.close()
+
+  logEntry("Old: "+old_ip)
+  logEntry("New: "+new_ip)
+
+# throw an exception if the files can't load
+except:
+  logEntry('Could not open file(s), maybe they havent been created yet? (new_ip.txt, old_ip.txt)')
+  logEntry('Try again. The file(s) should exist now. If not, then something is wrong.')
+  old_ip = new_ip
 
 # if IPs are different, that means it's changed.
 if old_ip != new_ip:

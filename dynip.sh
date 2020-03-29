@@ -16,6 +16,7 @@ debug=false
 # setting the file names
 log="dynip.log"
 newip="new_ip.txt"
+oldip="old_ip.txt"
 rotate="rotation.txt"
 # get the rotation number from the rotation file
 rot=$(<$path$rotate)
@@ -75,3 +76,6 @@ if [ "$debug" = true ] ; then
 else
   cd $path && ./dynip.py
 fi
+
+# creates the old_ip.txt file if it doesn't exist
+echo "" >> $path$oldip

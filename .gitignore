@@ -3,3 +3,7 @@
 
 # ignore all conf
 *.conf
+
+# ignore old_ip.txt and new_ip.txt
+old_ip.txt
+new_ip.txt
