@@ -7,7 +7,9 @@ This is only originally created to work with Google Domains, but could easily be
 
 # INSTALLATION AND SETUP
 
-First things first, you need to create a Synthetic Record on Google Domains for your A record (choose the Dynamic DNS option)
+First things first, you need to create a Synthetic Record on Google Domains for your A record (choose the Dynamic DNS option) 
+https://support.google.com/domains/answer/6147083
+https://support.google.com/domains/answer/6069273?hl=en
 
 Download this git repository
 The folder can sit anywhere on the server. So place it where ever you want.
