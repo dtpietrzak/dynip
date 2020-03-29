@@ -11,13 +11,23 @@ First things first, you need to create a Synthetic Record on Google Domains for 
 
 Download this git repository
 The folder can sit anywhere on the server. So place it where ever you want.
+Open dynip.sh with whatever text editor or interface you prefer (Atom / Nano / Vim / TextEdit / etc.)
+Change the path="" variable to the FULL path, wherever you put the dynip directory (including the dynlib directory)
 
-Open dynip.py with whatever text editor or python interface you prefer
-Edit the "username", "password", and "domain" variables with your information on domains.google.com
+Make a new file named dynip.conf, right in the dynip directory, and with whatever text editor or interface you prefer,
+add your "username", "password", and "domain" variables with the information from your domains.google.com account
+It should look something like "faF3dga9432GD jsfdk232rFDf33 website.org"
+Check out dynip.conf_example to see an even better example of what it should look like.
 
-You'll need to add a cron job by using "crontab -e" in terminal, in order to periodically run the dynip.sh script
+Finally, you'll need to add a cron job by using "crontab -e" in terminal
+This will periodically run the dynip.sh script
 Add this line to the bottom, replacing [LOCATION] with the location of the dynip folder
+Again, this location needs to be the FULL path to your dynip directory
 
 */10 * * * * /bin/bash /[LOCATION]/dynip.sh
+
+
+
+That's all folks!
 
 This will check your IP every 10 minutes, and update it on domains.google.com if it has changed.
