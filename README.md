@@ -25,7 +25,7 @@ This will periodically run the dynip.sh script
 Add this line to the bottom, replacing [LOCATION] with the location of the dynip folder
 Again, this location needs to be the FULL path to your dynip directory
 
-*/10 * * * * /bin/bash /[LOCATION]/dynip.sh
+*/10 * * * * /bin/bash /[LOCATION]/dynip.sh > /dev/null
 
 
 
