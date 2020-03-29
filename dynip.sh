@@ -7,7 +7,7 @@ echo "- - - - - - - - "
 echo
 
 echo "getting current IP"
-rot=$(<rotation)
+rot=$(<rotation.txt)
 ip_sites=(ifconfig.me/ip v4.ident.me ipv4.icanhazip.com ipecho.net/plain ipinfo.io/ip checkip.amazonaws.com)
 num_of_sites=${#ip_sites[@]}
 
@@ -38,7 +38,7 @@ do
       echo "IPs don't match, I will try again later..."
       echo "IP MATCH ERROR!" >> dynip.log
     fi
-    echo $i2 > rotation
+    echo $i2 > rotation.txt
   fi
 done
 
