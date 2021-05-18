@@ -19,11 +19,14 @@ Make a new file named dynip.conf, right in the dynip directory, and with whateve
 add your "username", "password", and "domain" variables with the information from your domains.google.com account
 It should look something like "faF3dga9432GD jsfdk232rFDf33 website.org"
 Check out dynip.conf_example to see an even better example of what it should look like.
+"domain" does NOT include the sub domain of the synthetic record. Google figures that out using the "username" and "password"
 
 Finally, you'll need to add a cron job by using "crontab -e" in terminal
 This will periodically run the dynip.sh script
 Add this line to the bottom, replacing [LOCATION] with the location of the dynip folder
 Again, this location needs to be the FULL path to your dynip directory
+You can change how often your machine checks it's own IP but changing the crontab entry.
+Changing "*/10" to "*/30" would tell the machine to update every 30 minutes instead of every 10 minutes. 
 
 */10 * * * * /bin/bash /[LOCATION]/dynip.sh > /dev/null
 
